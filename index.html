@@ -3,51 +3,162 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Awesome Landing Page</title>
+    <title>Calem Engineering</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
-        .container {
-            padding: 20px;
-            border-radius: 8px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); /* Blue gradient */
         }
-        h1 {
-            color: #007bff;
+        .section-title {
+            @apply text-3xl md:text-4xl font-bold text-gray-800 mb-8 text-center;
         }
-        p {
-            font-size: 1.1em;
+        .card {
+            @apply bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 ease-in-out;
         }
-        .button {
-            display: inline-block;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 20px;
+        .btn {
+            @apply px-8 py-3 rounded-lg font-semibold text-white transition-transform duration-300 ease-in-out;
         }
-        .button:hover {
-            background-color: #0056b3;
+        .btn-primary {
+            @apply bg-blue-600 hover:bg-blue-700 transform hover:scale-105;
         }
+        .btn-secondary {
+            @apply bg-gray-700 hover:bg-gray-800 transform hover:scale-105;
+        }
+        .fade-in-up {
+            animation: fadeInUp 1s ease-out forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        /* Add delays for staggered animations */
+        .delay-200 { animation-delay: 0.2s; }
+        .delay-400 { animation-delay: 0.4s; }
+        .delay-600 { animation-delay: 0.6s; }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h1>Welcome to My Landing Page!</h1>
-        <p>This is a simple landing page hosted on GitHub Pages.</p>
-        <p>We're glad you're here.</p>
-        <a href="#" class="button">Learn More</a>
-    </div>
+<body class="bg-gray-50 text-gray-700">
+
+    <nav class="bg-white shadow-md fixed w-full z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-blue-600">Calem Engineering</a>
+            <div>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">About</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium">Services</a>
+                </div>
+        </div>
+    </nav>
+
+    <header class="hero-bg text-white min-h-screen flex items-center justify-center pt-16">
+        <div class="text-center px-4">
+            <h1 class="text-5xl md:text-7xl font-extrabold mb-4 fade-in-up" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                Calem Engineering
+            </h1>
+            <p class="text-xl md:text-2xl font-light mb-8 fade-in-up delay-200">
+                This domain belongs to João Cálem
+            </p>
+            <div class="space-x-4 fade-in-up delay-400">
+                <a href="#about" class="btn btn-primary">Learn More</a>
+                <a href="#services" class="btn btn-secondary bg-opacity-70 hover:bg-opacity-90">View Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="py-16 md:py-24 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in-up">About Calem Engineering</h2>
+            <div class="max-w-3xl mx-auto text-center text-lg text-gray-600 fade-in-up delay-200">
+                <p class="mb-4">
+                    Calem Engineering, established by João Cálem, is dedicated to exploring and developing innovative solutions in the engineering field.
+                </p>
+                <p class="mb-4">
+                    With a foundation built on a passion for technology and problem-solving, this space will showcase projects, insights, and services as they evolve.
+                </p>
+                <p>
+                    João is committed to excellence and forward-thinking approaches in all engineering endeavors. Explore further to learn about the vision and upcoming developments.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            <h2 class="section-title fade-in-up">Core Areas of Focus</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="card fade-in-up delay-200">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Engineering Consulting</h3>
+                    <p class="text-gray-600 text-center">Providing expert technical advice, strategic planning, and problem-solving for complex engineering challenges.</p>
+                </div>
+                <div class="card fade-in-up delay-400">
+                    <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Custom Development</h3>
+                    <p class="text-gray-600 text-center">Designing and developing bespoke engineering solutions, from concept to implementation, tailored to specific needs.</p>
+                </div>
+                <div class="card fade-in-up delay-600">
+                     <div class="text-blue-500 mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 mx-auto" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2 text-center">Innovative Prototyping</h3>
+                    <p class="text-gray-600 text-center">Facilitating rapid prototyping and rigorous testing of new concepts to accelerate innovation and validate designs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-800 text-gray-300 py-12">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-lg font-semibold">Calem Engineering</p>
+            <p class="text-sm">&copy; <span id="currentYear"></span> João Cálem. All rights reserved.</p>
+            <p class="text-xs mt-2">Pioneering innovative engineering solutions.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Simple scroll reveal for elements with fade-in-up
+        const animatedElements = document.querySelectorAll('.fade-in-up');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                    // Optional: unobserve after animation
+                    // observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+
+        // handleFormSubmit function removed as contact section is removed
+    </script>
+
 </body>
 </html>
