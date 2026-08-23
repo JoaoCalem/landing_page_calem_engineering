@@ -7,6 +7,8 @@
 <meta name="status" content="Options calendar v4 (images + map links) — sharable; awaiting deck results to thin options">
 <meta name="summary" content="Day-by-day calendar of the Oct 16–24 trip: locked vs proposals vs pick-one alternatives, with photos and Google Maps links per activity.">
 <title>Bologna trip — options calendar</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root{--bg:#efe9dd;--ink:#33291f;--muted:#8c8172;--card:#fbf8f1;--bo:#a44a3f;--cav:#5b6e3f;--liv:#7a5c8f;--gold:#9a6a1b;--fix:#3b5b46}
   *{box-sizing:border-box;margin:0}
@@ -48,6 +50,13 @@
   .or::before,.or::after{content:'';flex:1;border-top:1px dotted #d8cbab}
   @media (max-width:480px){.alts{grid-template-columns:1fr}.or{display:flex !important}}
   .foot{color:var(--muted);font-size:12.5px;margin-top:26px;max-width:640px}
+  .day.hasmap{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:16px}
+  .day.hasmap>.base,.day.hasmap>h2{grid-column:1/-1}
+  .daymap{position:relative;min-height:340px}
+  .daymap-inner{position:sticky;top:66px;height:360px;border-radius:12px;overflow:hidden;border:1px solid #ddd2bd;background:#e8e2d4}
+  .leaflet-popup-content{font:12.5px/1.4 -apple-system,'Segoe UI',sans-serif;margin:8px 10px}
+  .leaflet-popup-content a{color:#9a6a1b}
+  @media (max-width:700px){.day.hasmap{grid-template-columns:1fr}.daymap{min-height:240px}.daymap-inner{position:static;height:240px}}
 </style>
 </head>
 <body>
@@ -62,7 +71,7 @@
 
 <script>
 // map chips are generated from data-m="Label|query;Label|query" attributes
-document.addEventListener('DOMContentLoaded',()=>{
+document.addEventListener('DOMContentLoaded',async()=>{
   document.querySelectorAll('[data-m]').forEach(el=>{
     el.getAttribute('data-m').split(';').forEach(pair=>{
       const [label,q]=pair.split('|');if(!q)return;
@@ -70,6 +79,38 @@ document.addEventListener('DOMContentLoaded',()=>{
       a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
       a.textContent='📍 '+label;el.appendChild(a);
     });
+  });
+  // per-day maps from the same data-m attributes + pre-geocoded coords.json
+  if(typeof L==='undefined')return;
+  let coords={};
+  try{coords=await (await fetch('coords.json')).json()}catch(e){return}
+  const color=el=>el.closest('.fixrow')?'#3b5b46':el.closest('.prop')?'#9a6a1b':'#a44a3f';
+  document.querySelectorAll('.day').forEach(day=>{
+    const pins=[];const seen=new Set();
+    day.querySelectorAll('[data-m]').forEach(el=>{
+      el.getAttribute('data-m').split(';').forEach(pair=>{
+        const [label,q]=pair.split('|');if(!q||seen.has(q)||!coords[q])return;
+        seen.add(q);pins.push({label,q,ll:coords[q],c:color(el)});
+      });
+    });
+    if(!pins.length)return;
+    const body=document.createElement('div');body.className='daybody';
+    const keep=[];
+    [...day.children].forEach(ch=>{if(ch.classList.contains('base')||ch.tagName==='H2'){keep.push(ch)}else{body.appendChild(ch)}});
+    day.appendChild(body);
+    const wrap=document.createElement('div');wrap.className='daymap';
+    const inner=document.createElement('div');inner.className='daymap-inner';
+    wrap.appendChild(inner);day.appendChild(wrap);day.classList.add('hasmap');
+    const m=L.map(inner,{scrollWheelZoom:false});
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap'}).addTo(m);
+    const group=[];
+    pins.forEach(p=>{
+      const mk=L.circleMarker(p.ll,{radius:8,color:'#fff',weight:2,fillColor:p.c,fillOpacity:.95}).addTo(m);
+      mk.bindPopup(`<b>${p.label}</b><br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(p.q)}" target="_blank" rel="noopener">open in Google Maps</a>`);
+      group.push(mk);
+    });
+    if(pins.length===1)m.setView(pins[0].ll,14);
+    else m.fitBounds(L.featureGroup(group).getBounds().pad(0.25));
   });
 });
 </script>
@@ -82,7 +123,7 @@ document.addEventListener('DOMContentLoaded',()=>{
     <div class="alts">
       <div class="alt" data-m="Sfoglia Rina|Sfoglia Rina Via Castiglione Bologna"><img src="img/v_sfogliarina.jpg" alt=""><span class="tag walk">walk-in</span>Late first plate at Sfoglia Rina ~16:00 — continuous kitchen, empty at that hour<small>then the Quadrilatero wander happens naturally after</small></div>
       <div class="or">or</div>
-      <div class="alt" data-m="Piazza Maggiore|Piazza Maggiore Bologna;Quadrilatero|Quadrilatero Bologna"><img src="img/piazzamaggiore.jpg" alt=""><span class="tag chill">chill</span>Skip food, wander the Quadrilatero + Piazza Maggiore with no plan<small>whispering gallery 2-min detour; market streets at full energy from ~17:00; Gamberini espresso to hold out</small></div>
+      <div class="alt" data-m="Piazza Maggiore|Piazza Maggiore Bologna;Quadrilatero|Quadrilatero Bologna;S. Maria della Vita|Santa Maria della Vita Bologna"><img src="img/piazzamaggiore.jpg" alt=""><span class="tag chill">chill</span>Skip food, wander the Quadrilatero + Piazza Maggiore with no plan<small>whispering gallery 2-min detour; peek into Santa Maria della Vita for the Compianto terracottas (15 min, stunning); market streets at full energy from ~17:00</small></div>
     </div>
   </div>
   <div class="slot"><h3>Evening — <em>one of</em></h3>
@@ -91,7 +132,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div class="or">or</div>
       <div class="alt" data-m="Via Serra|Trattoria di Via Serra Bologna"><img src="img/tortellini.jpg" alt=""><span class="tag book">book</span>Trattoria di Via Serra dinner <span class="dl">call late Sept</span><small>Friday is one of its only slots this trip; the call also settles the “temp closed” flag</small></div>
       <div class="or">or</div>
-      <div class="alt" data-m="Cremeria Cavour|Cremeria Cavour Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Passeggiata + first gelato (Cremeria Cavour), nothing else<small>La Piazzola flea market runs Friday if energy allows</small></div>
+      <div class="alt" data-m="Cremeria Cavour|Cremeria Cavour Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Passeggiata + first gelato, nothing else<small>the trip-long gelato championship: Cremeria Cavour vs Santo Stefano vs Gelateria Gianni vs La Sorbetteria Castiglione — one per evening, crown a winner by Tuesday</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="I Conoscenti|I Conoscenti Bologna;Cinema Modernissimo|Cinema Modernissimo Bologna"><img src="img/spritz.jpg" alt=""><span class="tag chill">chill</span>Cocktail night: I Conoscenti (dark, romantic) or Caffè Pathé inside the 1915 Cinema Modernissimo<small>the NYT-fresh nightlife picks — also good any other Bologna evening</small></div>
     </div>
   </div>
 </section>
@@ -106,6 +149,8 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div class="alt"><img src="img/tortellini.jpg" alt=""><span class="tag book">book</span>Pasta class (morning format) <span class="dl">book late Sept</span><small>Taste Bologna morning slot; Cesarine evening version would claim the evening instead — venue comes with the booking</small></div>
       <div class="or">or</div>
       <div class="alt" data-m="Gamberini|Pasticceria Gamberini Via Ugo Bassi Bologna;Via Piella window|Finestrella di Via Piella Bologna"><img src="img/bolognaview.jpg" alt=""><span class="tag chill">chill</span>Slow start: Gamberini breakfast + canal walk to the Via Piella window</div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Clock Tower|Torre dell'Orologio Palazzo d'Accursio Bologna"><img src="img/piazzamaggiore.jpg" alt=""><span class="tag book">book</span>Climb the Clock Tower on Piazza Maggiore <span class="dl">booking compulsory — bolognawelcome.com, €10</span><small>the Due Torri are CLOSED until 2028+ — this is the panoramic view now; timed slots every 20 min, 10:00–18:20; time it to the hour strike to watch the 1451 clockwork; ticket includes the Collezioni d’Arte (closed Mon — usable another day)</small></div>
     </div>
   </div>
   <div class="slot"><h3>Midday / afternoon — <em>one of</em></h3>
@@ -114,9 +159,9 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div class="or">or</div>
       <div class="alt"><img src="img/apennines.jpg" alt=""><span class="tag walk">walk-in</span>Tartufesta truffle-village half-day in the Apennines<small>host towns published ~late Sept; bus/taxi</small></div>
       <div class="or">or</div>
-      <div class="alt" data-m="Santo Stefano|Basilica di Santo Stefano Bologna;Cremeria S. Stefano|Cremeria Santo Stefano Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Santo Stefano churches + Cremeria Santo Stefano gelato + bookshop loitering</div>
+      <div class="alt" data-m="Santo Stefano|Basilica di Santo Stefano Bologna;Cremeria S. Stefano|Cremeria Santo Stefano Bologna;Archiginnasio|Archiginnasio Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Santo Stefano churches + gelato + bookshop loitering<small>add the Archiginnasio anatomical theatre (carved wooden anatomy hall; €10 audioguide, online booking compulsory via bolognawelcome, closed Sundays) — 5 min away; La Sorbetteria Castiglione is down the same street for the championship</small></div>
       <div class="or">or</div>
-      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna;Camera a Sud|Camera a Sud Via Valdonica Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag chill">chill</span>Enoteca afternoon — Faccioli (from 12:00 Sat) or Camera a Sud armchairs</div>
+      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna;Camera a Sud|Camera a Sud Via Valdonica Bologna;Vinibelli|Bottiglieria Vinibelli Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag chill">chill</span>Enoteca afternoon — Faccioli (from 12:00 Sat), Camera a Sud armchairs, or Bottiglieria–Vinibelli (new 2025, natural wines + bottle shop — Via Saragozza 71/A, closed Mondays)</div>
     </div>
   </div>
   <div class="slot"><h3>Evening — <em>one of</em></h3>
@@ -137,7 +182,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   <h2>Sun 18 <small>the shaped day — only the evening is a real choice</small></h2>
   <div class="slot"><h3>Morning + midday</h3>
     <div class="prop" data-m="San Luca|Santuario Madonna di San Luca Bologna">San Luca portico climb, ~9:30 → down by 12 (bus 58 back is honorable)</div>
-    <div class="prop" data-m="Diana|Ristorante Diana Via Indipendenza Bologna;Da Me|Trattoria Da Me Via San Felice Bologna;Gianni|Trattoria Gianni Via Clavature Bologna;Anna Maria|Trattoria Anna Maria Via Belle Arti Bologna">A proper Sunday lunch, 13:00 <small>candidates: Diana / Da Me / Gianni / Anna Maria — would need booking late Sept</small></div>
+    <div class="prop" data-m="Diana|Ristorante Diana Via Indipendenza Bologna;Da Me|Trattoria Da Me Via San Felice Bologna;Da Me nella Torre|Trattoria da Me nella Torre Bologna;Gianni|Trattoria Gianni Via Clavature Bologna;Anna Maria|Trattoria Anna Maria Via Belle Arti Bologna">A proper Sunday lunch, 13:00 <small>candidates: Diana / Da Me / Gianni / Anna Maria — would need booking late Sept. Wildcard: Da Me’s second branch “nella Torre” serves its famous lasagna bolognese ONLY on Sundays</small></div>
   </div>
   <div class="slot"><h3>Afternoon — <em>one of, at digestion pace</em></h3>
     <div class="alts">
@@ -152,7 +197,7 @@ document.addEventListener('DOMContentLoaded',()=>{
       <div class="or">or</div>
       <div class="alt" data-m="San Michele in Bosco|San Michele in Bosco Bologna"><img src="img/sanluca.jpg" alt=""><span class="tag chill">chill</span>Sunset from San Michele in Bosco (18:24) → gelato → passeggiata<small>the locals’ Sunday night</small></div>
       <div class="or">or</div>
-      <div class="alt" data-m="Medulla Vini|Medulla Vini Via Oberdan Bologna;Oltre|Oltre ristorante Via Majani Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Medulla Vini (Sunday-open natural wine) or Oltre. if lunch left room</div>
+      <div class="alt" data-m="Medulla Vini|Medulla Vini Via Oberdan Bologna;Oltre|Oltre ristorante Via Majani Bologna;Casamerlò|Casamerlo Via de Gombruti Bologna;Marsalino|Osteria Marsalino Via Marsala Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Medulla Vini (natural wine) or a real Sunday dinner after all<small>verified Sunday-night-open: Casamerlò (modern trattoria) and Marsalino (osteria-bar, music) — plus Oltre. — so the “kitchens closed” problem is actually solved</small></div>
     </div>
   </div>
 </section>
@@ -177,14 +222,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
   <div class="slot"><h3>Afternoon, back in Bologna — <em>one of</em></h3>
     <div class="alts">
-      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Enoteca Faccioli from 16:00 — the Monday anchor<small>most museums closed Mondays; Albergati expo is the rain exception</small></div>
+      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Enoteca Faccioli from 16:00 — the Monday anchor<small>most museums closed Mondays; verified rain exceptions: Albergati expo, and the Archiginnasio anatomical theatre (open Mon 10:00–17:30, book via bolognawelcome)</small></div>
       <div class="or">or</div>
       <div class="alt"><img src="img/porticoes.jpg" alt=""><span class="tag chill">chill</span>University-quarter portico wandering, zero agenda</div>
     </div>
   </div>
   <div class="slot"><h3>Evening — <em>one of (the Monday survivors)</em></h3>
     <div class="alts">
-      <div class="alt" data-m="Oltre|Oltre ristorante Via Majani Bologna;Osteria al 15|Osteria al 15 Via Mirasole Bologna;Da Cesari|Da Cesari Via de Carbonesi Bologna;Oggi Gelato|Oggi Officina Gelato Via Ugo Bassi Bologna"><img src="img/lasagne.jpg" alt=""><span class="tag walk">walk-in</span>Oltre. (upscale) · Osteria al 15 (crescentine) · Da Cesari (classic)<small>gelato fix: Oggi, Via Ugo Bassi — the cremerias close Mondays</small></div>
+      <div class="alt" data-m="Oltre|Oltre ristorante Via Majani Bologna;Osteria al 15|Osteria al 15 Via Mirasole Bologna;Donatello|Ristorante Donatello Via Righi Bologna;Al Sangiovese|Al Sangiovese Vicolo del Falcone Bologna"><img src="img/lasagne.jpg" alt=""><span class="tag walk">walk-in</span>Monday survivors: Oltre. (upscale) · Osteria al 15 (crescentine) · Donatello (since 1903, verified open) · Al Sangiovese (Saragozza classic)<small>gelato fix: the cremerias close Mondays but Gelateria Gianni and La Sorbetteria are open — championship continues</small></div>
       <div class="or">or</div>
       <div class="alt"><img src="img/bolognaview.jpg" alt=""><span class="tag chill">chill</span>Early night — the car chapter starts tomorrow</div>
     </div>
@@ -319,6 +364,6 @@ document.addEventListener('DOMContentLoaded',()=>{
   </div>
 </section>
 
-<p class="foot">Photos: Wikipedia/Wikimedia Commons thumbnails (plus venue sites). ⚠ items get phone-verified 1–2 weeks before the trip.</p>
+<p class="foot">Photos: Wikipedia/Wikimedia Commons thumbnails (plus venue sites). Maps © OpenStreetMap contributors. ⚠ items get phone-verified 1–2 weeks before the trip.</p>
 </body>
 </html>

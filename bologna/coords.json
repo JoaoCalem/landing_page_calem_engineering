@@ -1,0 +1,346 @@
+{
+ "Agricola Cavazzone Viano": [
+  44.58036,
+  10.58733
+ ],
+ "Al Mulino di Torrechiara": [
+  44.65733,
+  10.2763
+ ],
+ "Auditorium Manzoni Bologna": [
+  44.4972,
+  11.3425
+ ],
+ "Basilica di San Vitale Ravenna": [
+  44.42058,
+  12.19631
+ ],
+ "Basilica di Santo Stefano Bologna": [
+  44.49203,
+  11.34872
+ ],
+ "Bologna Guglielmo Marconi Airport": [
+  44.53443,
+  11.28845
+ ],
+ "Ca de Ven Via Corrado Ricci Ravenna": [
+  44.41606,
+  12.19995
+ ],
+ "Camera a Sud Via Valdonica Bologna": [
+  44.49634,
+  11.34718
+ ],
+ "Cantina del Bonsignore Brisighella": [
+  44.22346,
+  11.77246
+ ],
+ "Caseificio San Pier Damiani Parma": [
+  44.80139,
+  10.11809
+ ],
+ "Caseificio Ugolotti San Prospero Parma": [
+  44.78481,
+  10.3821
+ ],
+ "Castello di Canossa": [
+  44.57601,
+  10.45563
+ ],
+ "Castello di Torrechiara": [
+  44.6554,
+  10.27338
+ ],
+ "Certosa di Bologna": [
+  44.49291,
+  11.30411
+ ],
+ "Comacchio": [
+  44.69587,
+  12.18125
+ ],
+ "Consorzio Vacche Rosse Reggio Emilia": [
+  44.68911,
+  10.60415
+ ],
+ "Cremeria Cavour Bologna": [
+  44.49113,
+  11.34423
+ ],
+ "Cremeria Santo Stefano Bologna": [
+  44.48808,
+  11.3523
+ ],
+ "Da Cesari Via de Carbonesi Bologna": [
+  44.49123,
+  11.34091
+ ],
+ "Duomo di Modena": [
+  44.64631,
+  10.92551
+ ],
+ "Duomo di Parma": [
+  44.80326,
+  10.33133
+ ],
+ "Enoteca Storica Faccioli Bologna": [
+  44.49523,
+  11.34453
+ ],
+ "Faenza centro": [
+  44.29359,
+  11.88322
+ ],
+ "Finestrella di Via Piella Bologna": [
+  44.49857,
+  11.34516
+ ],
+ "Gaggioli Vini Zola Predosa": [
+  44.48772,
+  11.19808
+ ],
+ "Giardini Margherita Bologna": [
+  44.48221,
+  11.35268
+ ],
+ "La Piadina del Melarancio Ravenna": [
+  44.41851,
+  12.19926
+ ],
+ "Mausoleo di Galla Placidia Ravenna": [
+  44.42095,
+  12.19709
+ ],
+ "Medulla Vini Via Oberdan Bologna": [
+  44.49597,
+  11.34576
+ ],
+ "Mercato Albinelli Modena": [
+  44.64483,
+  10.92551
+ ],
+ "Mercato Ritrovato Via Azzo Gardino Bologna": [
+  44.50219,
+  11.33492
+ ],
+ "Oggi Officina Gelato Via Ugo Bassi Bologna": [
+  44.49578,
+  11.33785
+ ],
+ "Oltre ristorante Via Majani Bologna": [
+  44.4969,
+  11.33804
+ ],
+ "Osteria Broccaindosso Bologna": [
+  44.49192,
+  11.35476
+ ],
+ "Osteria al 15 Via Mirasole Bologna": [
+  44.48735,
+  11.34119
+ ],
+ "Osteria del Sole Vicolo Ranocchi Bologna": [
+  44.49379,
+  11.34435
+ ],
+ "Pasticceria Gamberini Via Ugo Bassi Bologna": [
+  44.49548,
+  11.338
+ ],
+ "Pasticceria San Biagio Via Emilia Modena": [
+  44.645,
+  10.92937
+ ],
+ "Pasticceria Torino Strada Garibaldi Parma": [
+  44.80657,
+  10.32916
+ ],
+ "Piazza Maggiore Bologna": [
+  44.49366,
+  11.34305
+ ],
+ "Piazza VIII Agosto Bologna": [
+  44.50038,
+  11.34536
+ ],
+ "Profumo di Piadina Via Cairoli Ravenna": [
+  44.4169,
+  12.19953
+ ],
+ "Quadrilatero Bologna": [
+  44.49651,
+  11.35255
+ ],
+ "Ristorante Da Danilo Modena": [
+  44.64764,
+  10.92752
+ ],
+ "Ristorante Diana Via Indipendenza Bologna": [
+  44.49771,
+  11.34302
+ ],
+ "Ristorante La Grotta Via Metelli Brisighella": [
+  44.2236,
+  11.77403
+ ],
+ "Rocca Manfrediana Brisighella": [
+  44.22478,
+  11.77091
+ ],
+ "Salumeria Simoni Via Pescherie Vecchie Bologna": [
+  44.49361,
+  11.34427
+ ],
+ "San Michele in Bosco Bologna": [
+  44.48224,
+  11.34187
+ ],
+ "Santuario Madonna di San Luca Bologna": [
+  44.47909,
+  11.29817
+ ],
+ "Sfoglia Rina Via Castiglione Bologna": [
+  44.49318,
+  11.34634
+ ],
+ "Teatro Farnese Parma": [
+  44.80487,
+  10.32597
+ ],
+ "Teatro Regio di Parma": [
+  44.80323,
+  10.32681
+ ],
+ "Teatro Valli Reggio Emilia": [
+  44.70111,
+  10.63138
+ ],
+ "Terme della Salvarola Sassuolo": [
+  44.51937,
+  10.76807
+ ],
+ "Terme di Riolo Riolo Terme": [
+  44.27029,
+  11.71975
+ ],
+ "Terra di Brisighella Via Strada Brisighella": [
+  44.21779,
+  11.75902
+ ],
+ "Tomba di Dante Ravenna": [
+  44.41615,
+  12.20091
+ ],
+ "Torre Ghirlandina Modena": [
+  44.64637,
+  10.92591
+ ],
+ "Trattoria Aldina Via Albinelli Modena": [
+  44.64467,
+  10.92497
+ ],
+ "Trattoria Amerigo 1934 Savigno": [
+  44.39013,
+  11.07369
+ ],
+ "Trattoria Anna Maria Via Belle Arti Bologna": [
+  44.49758,
+  11.3496
+ ],
+ "Trattoria Da Me Via San Felice Bologna": [
+  44.49727,
+  11.33246
+ ],
+ "Trattoria Ermes Via Ganaceto Modena": [
+  44.64944,
+  10.92539
+ ],
+ "Trattoria Gianni Via Clavature Bologna": [
+  44.49327,
+  11.34552
+ ],
+ "Trattoria Sorelle Picchi Strada Farini Parma": [
+  44.79955,
+  10.32749
+ ],
+ "Trattoria di Via Serra Bologna": [
+  44.50943,
+  11.34557
+ ],
+ "Venturini Baldini Quattro Castella": [
+  44.63431,
+  10.4957
+ ],
+ "Via degli Asini Brisighella": [
+  44.22378,
+  11.77318
+ ],
+ "Via del Pratello Bologna": [
+  44.49542,
+  11.32921
+ ],
+ "Villa Liverzano Brisighella": [
+  44.21648,
+  11.75293
+ ],
+ "query": [
+  49.05794,
+  -0.70727
+ ],
+ "Santa Maria della Vita Bologna": [
+  44.49344,
+  11.34461
+ ],
+ "I Conoscenti Bologna": [
+  44.4965,
+  11.34186
+ ],
+ "Cinema Modernissimo Bologna": [
+  44.49452,
+  11.34395
+ ],
+ "Torre dell'Orologio Palazzo d'Accursio Bologna": [
+  44.49403,
+  11.34234
+ ],
+ "Archiginnasio Bologna": [
+  44.49187,
+  11.34385
+ ],
+ "Trattoria da Me nella Torre Bologna": [
+  44.49187,
+  11.34217
+ ],
+ "Osteria Marsalino Via Marsala Bologna": [
+  44.49735,
+  11.34495
+ ],
+ "Trattoria Collegio di Spagna Bologna": [
+  44.49079,
+  11.33831
+ ],
+ "Casamerlo Via de Gombruti Bologna": [
+  44.49416,
+  11.33749
+ ],
+ "Al Sangiovese Vicolo del Falcone Bologna": [
+  44.48687,
+  11.34069
+ ],
+ "Gelateria Gianni Bologna": [
+  44.49455,
+  11.34698
+ ],
+ "La Sorbetteria Castiglione Bologna": [
+  44.4878,
+  11.34818
+ ],
+ "Bottiglieria Vinibelli Bologna": [
+  44.49038,
+  11.33117
+ ],
+ "Ristorante Donatello Via Righi Bologna": [
+  44.49915,
+  11.3447
+ ]
+}
