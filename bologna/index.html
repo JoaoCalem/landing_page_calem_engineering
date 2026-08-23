@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="topic" content="personal/bologna-trip">
+<meta name="status" content="Options calendar v4 (images + map links) — sharable; awaiting deck results to thin options">
+<meta name="summary" content="Day-by-day calendar of the Oct 16–24 trip: locked vs proposals vs pick-one alternatives, with photos and Google Maps links per activity.">
+<title>Bologna trip — options calendar</title>
+<style>
+  :root{--bg:#efe9dd;--ink:#33291f;--muted:#8c8172;--card:#fbf8f1;--bo:#a44a3f;--cav:#5b6e3f;--liv:#7a5c8f;--gold:#9a6a1b;--fix:#3b5b46}
+  *{box-sizing:border-box;margin:0}
+  body{background:var(--bg);color:var(--ink);font:15.5px/1.5 -apple-system,'Segoe UI',sans-serif;max-width:820px;margin:0 auto;padding:24px 16px 80px}
+  header h1{font-family:Georgia,serif;font-weight:400;font-size:26px}
+  header p{color:#57503f;font-size:14px;margin-top:4px;max-width:640px}
+  .legend{display:flex;flex-wrap:wrap;gap:12px;margin:12px 0 4px;font-size:12.5px;color:var(--muted)}
+  nav{position:sticky;top:0;background:var(--bg);padding:10px 0;display:flex;gap:5px;overflow-x:auto;z-index:5;border-bottom:1px solid #ddd2bd}
+  nav a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:12px;text-align:center;padding:5px 9px;border-radius:10px;border:1px solid transparent}
+  nav a b{display:block;font-size:15px;color:var(--ink)}
+  nav a.bo{border-color:#d9b8b2} nav a.cav{border-color:#bcc7ad} nav a.liv{border-color:#c8bcd2}
+  .day{background:var(--card);border:1px solid #e2d8c2;border-radius:18px;margin-top:18px;padding:16px 18px 16px;scroll-margin-top:70px}
+  .day h2{font-family:Georgia,serif;font-weight:400;font-size:21px}
+  .day h2 small{font-size:13px;color:var(--muted);font-style:italic;margin-left:8px}
+  .base{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:2px}
+  .b-bo{color:var(--bo)} .b-cav{color:var(--cav)} .b-liv{color:var(--liv)}
+  .slot{margin-top:14px}
+  .slot h3{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);padding-bottom:3px;margin-bottom:7px;border-bottom:1px solid #eee3cc}
+  .slot h3 em{font-style:normal;color:var(--gold);text-transform:none;letter-spacing:0;font-weight:700}
+  .fixrow{background:#eaf0ea;border:1px solid #cfdccf;border-radius:11px;padding:8px 12px;font-size:14px;color:#2e4739;margin-bottom:8px}
+  .fixrow::before{content:'🔒 ';font-size:12px}
+  .fixrow small{display:block;color:#5f7264;font-size:12.5px}
+  .prop{background:#f5efdf;border:1px solid #e2d3a8;border-radius:11px;padding:8px 12px;font-size:14px;color:#5c4f2e;margin-bottom:8px}
+  .prop::before{content:'✎ proposal · ';font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--gold)}
+  .prop small{display:block;color:#8a7a53;font-size:12.5px}
+  .alts{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:8px;align-items:stretch}
+  .alt{border:1.5px dashed #cfc2a4;background:#fdfaf2;border-radius:12px;padding:8px 12px;font-size:14px}
+  .alt img{width:calc(100% + 24px);margin:-8px -12px 8px;height:104px;object-fit:cover;border-radius:10px 10px 0 0;display:block}
+  .alt small{display:block;color:var(--muted);font-size:12.5px}
+  .alt .tag{font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;margin-right:6px;border-radius:5px;padding:0 5px}
+  .tag.book{color:#9a3b1f;border:1px solid #d9a690}
+  .tag.walk{color:var(--gold);border:1px solid #d9c690}
+  .tag.chill{color:var(--cav);border:1px solid #b5c4a6}
+  .alt .dl{color:#9a3b1f;font-weight:600}
+  a.map{display:inline-block;margin:6px 6px 0 0;background:#efe7d3;border:1px solid #ddd0b2;border-radius:99px;padding:1px 10px;font-size:11.5px;color:#6b5320;text-decoration:none;white-space:nowrap}
+  a.map:hover{border-color:var(--gold)}
+  .prop a.map,.fixrow a.map{background:rgba(255,255,255,.55)}
+  .or{display:none;align-items:center;gap:10px;color:#b3a687;font-size:10.5px;font-weight:800;letter-spacing:.2em;margin:3px 0}
+  .or::before,.or::after{content:'';flex:1;border-top:1px dotted #d8cbab}
+  @media (max-width:480px){.alts{grid-template-columns:1fr}.or{display:flex !important}}
+  .foot{color:var(--muted);font-size:12.5px;margin-top:26px;max-width:640px}
+</style>
+</head>
+<body>
+<header>
+  <h1>Oct 16–24 — the options calendar</h1>
+  <p>Nothing here is decided. Green 🔒 = actually locked (flights, stays, car — the only real commitments). Amber ✎ = <strong>proposals</strong> — anchors we lean towards but nothing is booked. Dashed boxes are <strong>alternatives: pick one, or none</strong>. All of it is up for discussion. 📍 opens the place on Google Maps.</p>
+  <div class="legend"><span><b style="color:#9a3b1f">BOOK</b> = only if chosen, deadline shown</span><span><b style="color:var(--gold)">WALK-IN</b> = zero commitment</span><span><b style="color:var(--cav)">CHILL</b> = no-plan option</span></div>
+</header>
+<nav>
+  <a href="#d16" class="bo"><b>16</b>Fri</a><a href="#d17" class="bo"><b>17</b>Sat</a><a href="#d18" class="bo"><b>18</b>Sun</a><a href="#d19" class="bo"><b>19</b>Mon</a><a href="#d20" class="cav"><b>20</b>Tue</a><a href="#d21" class="cav"><b>21</b>Wed</a><a href="#d22" class="liv"><b>22</b>Thu</a><a href="#d23" class="liv"><b>23</b>Fri</a><a href="#d24" class="liv"><b>24</b>Sat</a>
+</nav>
+
+<script>
+// map chips are generated from data-m="Label|query;Label|query" attributes
+document.addEventListener('DOMContentLoaded',()=>{
+  document.querySelectorAll('[data-m]').forEach(el=>{
+    el.getAttribute('data-m').split(';').forEach(pair=>{
+      const [label,q]=pair.split('|');if(!q)return;
+      const a=document.createElement('a');a.className='map';a.target='_blank';a.rel='noopener';
+      a.href='https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q);
+      a.textContent='📍 '+label;el.appendChild(a);
+    });
+  });
+});
+</script>
+
+<section class="day" id="d16">
+  <div class="base b-bo">Bologna · Airbnb</div>
+  <h2>Fri 16 <small>land 13:55 — deliberately planless after</small></h2>
+  <div class="slot"><h3>Afternoon</h3>
+    <div class="fixrow" data-m="BLQ airport|Bologna Guglielmo Marconi Airport">Land BLQ 13:55 → Marconi Express (7 min) → centro + check-in by ~15:30</div>
+    <div class="alts">
+      <div class="alt" data-m="Sfoglia Rina|Sfoglia Rina Via Castiglione Bologna"><img src="img/v_sfogliarina.jpg" alt=""><span class="tag walk">walk-in</span>Late first plate at Sfoglia Rina ~16:00 — continuous kitchen, empty at that hour<small>then the Quadrilatero wander happens naturally after</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Piazza Maggiore|Piazza Maggiore Bologna;Quadrilatero|Quadrilatero Bologna"><img src="img/piazzamaggiore.jpg" alt=""><span class="tag chill">chill</span>Skip food, wander the Quadrilatero + Piazza Maggiore with no plan<small>whispering gallery 2-min detour; market streets at full energy from ~17:00; Gamberini espresso to hold out</small></div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Osteria del Sole|Osteria del Sole Vicolo Ranocchi Bologna;Simoni|Salumeria Simoni Via Pescherie Vecchie Bologna"><img src="img/mortadella.jpg" alt=""><span class="tag walk">walk-in</span>Aperitivo picnic at Osteria del Sole<small>mortadella + parmigiano from Simoni next door, wine inside till 21:30 — dinner-sized if you let it be</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Via Serra|Trattoria di Via Serra Bologna"><img src="img/tortellini.jpg" alt=""><span class="tag book">book</span>Trattoria di Via Serra dinner <span class="dl">call late Sept</span><small>Friday is one of its only slots this trip; the call also settles the “temp closed” flag</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Cremeria Cavour|Cremeria Cavour Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Passeggiata + first gelato (Cremeria Cavour), nothing else<small>La Piazzola flea market runs Friday if energy allows</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d17">
+  <div class="base b-bo">Bologna · Airbnb</div>
+  <h2>Sat 17 <small>the fullest option-day — each slot is a pick, not a list</small></h2>
+  <div class="slot"><h3>Morning — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Mercato Ritrovato|Mercato Ritrovato Via Azzo Gardino Bologna;La Piazzola|Piazza VIII Agosto Bologna"><img src="img/porticoes.jpg" alt=""><span class="tag walk">walk-in</span>Mercato Ritrovato farmers’ market (9–14) + La Piazzola flea market<small>the antiques-morning combo, both walkable</small></div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/tortellini.jpg" alt=""><span class="tag book">book</span>Pasta class (morning format) <span class="dl">book late Sept</span><small>Taste Bologna morning slot; Cesarine evening version would claim the evening instead — venue comes with the booking</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Gamberini|Pasticceria Gamberini Via Ugo Bassi Bologna;Via Piella window|Finestrella di Via Piella Bologna"><img src="img/bolognaview.jpg" alt=""><span class="tag chill">chill</span>Slow start: Gamberini breakfast + canal walk to the Via Piella window</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Midday / afternoon — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Amerigo, Savigno|Trattoria Amerigo 1934 Savigno"><img src="img/truffle.jpg" alt=""><span class="tag book">book</span>Amerigo 1934, Savigno — the splurge lunch <span class="dl">book by early Sept</span><small>taxi ~45 min; white-truffle season; the leading big-night candidate — claims the whole midday</small></div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/apennines.jpg" alt=""><span class="tag walk">walk-in</span>Tartufesta truffle-village half-day in the Apennines<small>host towns published ~late Sept; bus/taxi</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Santo Stefano|Basilica di Santo Stefano Bologna;Cremeria S. Stefano|Cremeria Santo Stefano Bologna"><img src="img/gelato.jpg" alt=""><span class="tag chill">chill</span>Santo Stefano churches + Cremeria Santo Stefano gelato + bookshop loitering</div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna;Camera a Sud|Camera a Sud Via Valdonica Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag chill">chill</span>Enoteca afternoon — Faccioli (from 12:00 Sat) or Camera a Sud armchairs</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Teatro Regio|Teatro Regio di Parma"><img src="img/teatroregio.jpg" alt=""><span class="tag book">book</span>Alzira at Teatro Regio, Parma <span class="dl">tickets late Sept</span><small>train 55 min; rare Verdi; the opera front-runner</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Amerigo, Savigno|Trattoria Amerigo 1934 Savigno"><img src="img/truffle.jpg" alt=""><span class="tag book">book</span>Amerigo dinner — if the splurge is dinner-not-lunch <span class="dl">early Sept</span></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Broccaindosso|Osteria Broccaindosso Bologna"><img src="img/crescentine.jpg" alt=""><span class="tag book">book</span>Broccaindosso crescentine night<small>book 1–3 days ahead, from Italy</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Via del Pratello|Via del Pratello Bologna"><img src="img/spritz.jpg" alt=""><span class="tag chill">chill</span>Pratello bar crawl, no destination</div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d18">
+  <div class="base b-bo">Bologna · Airbnb</div>
+  <h2>Sun 18 <small>the shaped day — only the evening is a real choice</small></h2>
+  <div class="slot"><h3>Morning + midday</h3>
+    <div class="prop" data-m="San Luca|Santuario Madonna di San Luca Bologna">San Luca portico climb, ~9:30 → down by 12 (bus 58 back is honorable)</div>
+    <div class="prop" data-m="Diana|Ristorante Diana Via Indipendenza Bologna;Da Me|Trattoria Da Me Via San Felice Bologna;Gianni|Trattoria Gianni Via Clavature Bologna;Anna Maria|Trattoria Anna Maria Via Belle Arti Bologna">A proper Sunday lunch, 13:00 <small>candidates: Diana / Da Me / Gianni / Anna Maria — would need booking late Sept</small></div>
+  </div>
+  <div class="slot"><h3>Afternoon — <em>one of, at digestion pace</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Giardini Margherita|Giardini Margherita Bologna;Certosa|Certosa di Bologna"><img src="img/giardini.jpg" alt=""><span class="tag chill">chill</span>Giardini Margherita lawns, or Certosa cemetery in low sun (till 18:00)</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/bolognaview.jpg" alt=""><span class="tag chill">chill</span>Nap. It’s Sunday in Italy — the culturally correct option.</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening — kitchens mostly closed — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Teatro Regio|Teatro Regio di Parma"><img src="img/verdi.jpg" alt=""><span class="tag book">book</span>Nabucco at Teatro Regio, Parma <span class="dl">tickets late Sept</span><small>the 14-hour-day option; only if maximal Sunday appeals</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="San Michele in Bosco|San Michele in Bosco Bologna"><img src="img/sanluca.jpg" alt=""><span class="tag chill">chill</span>Sunset from San Michele in Bosco (18:24) → gelato → passeggiata<small>the locals’ Sunday night</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Medulla Vini|Medulla Vini Via Oberdan Bologna;Oltre|Oltre ristorante Via Majani Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Medulla Vini (Sunday-open natural wine) or Oltre. if lunch left room</div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d19">
+  <div class="base b-bo">Bologna · Airbnb</div>
+  <h2>Mon 19 <small>Modena by train — the trap day, pre-solved</small></h2>
+  <div class="slot"><h3>Morning</h3>
+    <div class="prop" data-m="Mercato Albinelli|Mercato Albinelli Modena;Duomo|Duomo di Modena;San Biagio|Pasticceria San Biagio Via Emilia Modena">Train to Modena ~20 min → Mercato Albinelli, Duomo (open to 12:30), San Biagio for torta Barozzi<small>Monday suits Modena best (market open, most of Bologna’s museums shut) — but it’s a lean, not a lock</small></div>
+    <div class="alts">
+      <div class="alt" data-m="Ghirlandina|Torre Ghirlandina Modena"><img src="img/ghirlandina.jpg" alt=""><span class="tag book">book</span>Ghirlandina tower slot <span class="dl">book ~1 wk out</span><small>timed hourly, max 25 — late-morning slot; skippable if heights/queues don’t appeal</small></div>
+    </div>
+  </div>
+  <div class="slot"><h3>Midday — <em>one of (all verified Monday-open, within 8 min of each other)</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Aldina|Trattoria Aldina Via Albinelli Modena"><img src="img/tortellini.jpg" alt=""><span class="tag walk">walk-in</span>Aldina — casalinga above the market; walk in at 12:00</div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Ermes|Trattoria Ermes Via Ganaceto Modena"><img src="img/gnoccofritto.jpg" alt=""><span class="tag walk">walk-in</span>Ermes — shared tables, queue before noon<small>⚠ I phone-verify before the trip</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Da Danilo|Ristorante Da Danilo Modena"><img src="img/lasagne.jpg" alt=""><span class="tag book">book</span>Da Danilo — bookable morning-of, zero risk</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Afternoon, back in Bologna — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Faccioli|Enoteca Storica Faccioli Bologna"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Enoteca Faccioli from 16:00 — the Monday anchor<small>most museums closed Mondays; Albergati expo is the rain exception</small></div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/porticoes.jpg" alt=""><span class="tag chill">chill</span>University-quarter portico wandering, zero agenda</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening — <em>one of (the Monday survivors)</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Oltre|Oltre ristorante Via Majani Bologna;Osteria al 15|Osteria al 15 Via Mirasole Bologna;Da Cesari|Da Cesari Via de Carbonesi Bologna;Oggi Gelato|Oggi Officina Gelato Via Ugo Bassi Bologna"><img src="img/lasagne.jpg" alt=""><span class="tag walk">walk-in</span>Oltre. (upscale) · Osteria al 15 (crescentine) · Da Cesari (classic)<small>gelato fix: Oggi, Via Ugo Bassi — the cremerias close Mondays</small></div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/bolognaview.jpg" alt=""><span class="tag chill">chill</span>Early night — the car chapter starts tomorrow</div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d20">
+  <div class="base b-cav">→ Agricola Cavazzone, Reggio hills · car from today</div>
+  <h2>Tue 20 <small>transfer day — at most ONE winery/spa add-on fits</small></h2>
+  <div class="slot"><h3>Morning</h3>
+    <div class="fixrow" data-m="Cavazzone|Agricola Cavazzone Viano">Pick up car (from 8:30), checkout by 10:00, drive ~1h15</div>
+    <div class="alts">
+      <div class="alt" data-m="Gaggioli|Gaggioli Vini Zola Predosa"><img src="img/vineyard.jpg" alt=""><span class="tag book">book</span>Gaggioli winery en route — 10-min detour <span class="dl">book 3+ days ahead</span><small>Pignoletto + salumi, €43pp — competes with Venturini Baldini below: pick at most one winery today</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Mercato Albinelli|Mercato Albinelli Modena"><img src="img/albinelli.jpg" alt=""><span class="tag walk">walk-in</span>Modena lunch stop if Monday changed shape (Albinelli closes 14:30)</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/apennines.jpg" alt=""><span class="tag chill">chill</span>Straight drive, arrive early</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Afternoon — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Venturini Baldini|Venturini Baldini Quattro Castella"><img src="img/lambrusco.jpg" alt=""><span class="tag book">book</span>Venturini Baldini tasting ~15:00 <span class="dl">book ~2 wks out</span><small>dry lambrusco + estate acetaia, 20 min from base — the winery front-runner</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Terme della Salvarola|Terme della Salvarola Sassuolo"><img src="img/rioloterme.jpg" alt=""><span class="tag walk">walk-in</span>Terme della Salvarola — couple’s weekday entry €55, 30 min</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/vineyard.jpg" alt=""><span class="tag chill">chill</span>Nothing: terrace, estate paths, unpack properly</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening</h3>
+    <div class="prop" data-m="Cavazzone|Agricola Cavazzone Viano">Cavazzone acetaia tour ~17:30 + dinner <small>pending their email reply — Tuesday dinner is their usual closing day; plan B = Scandiano trattoria, 10 min</small></div>
+  </div>
+</section>
+
+<section class="day" id="d21">
+  <div class="base b-cav">Agricola Cavazzone · the Parma day</div>
+  <h2>Wed 21 <small>the one sequenced day — castle closes 15:00</small></h2>
+  <div class="slot"><h3>Morning</h3>
+    <div class="prop" data-m="San Pier Damiani|Caseificio San Pier Damiani Parma;Vacche Rosse|Consorzio Vacche Rosse Reggio Emilia;Ugolotti|Caseificio Ugolotti San Prospero Parma">Parmigiano dairy ~9:00 <small>candidates: San Pier Damiani / Vacche Rosse / Ugolotti — needs booking if we want it; the 36-month wedge = gifts solved</small></div>
+    <div class="prop" data-m="Teatro Farnese|Teatro Farnese Parma;Duomo|Duomo di Parma;Pasticceria Torino|Pasticceria Torino Strada Garibaldi Parma">Parma old town by 11: Teatro Farnese, Duomo + baptistery <small>coffee: Pasticceria Torino</small></div>
+  </div>
+  <div class="slot"><h3>Midday + afternoon — <em>the fork: one path</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Torrechiara castle|Castello di Torrechiara;Al Mulino|Al Mulino di Torrechiara"><img src="img/torrechiara.jpg" alt=""><span class="tag book">book</span>Countryside path: castle 13:00 → lunch 13:45 at Al Mulino di Torrechiara beneath it → Langhirano valley home in golden light<small>the clean sequence; book the mill a day or two ahead</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Sorelle Picchi|Trattoria Sorelle Picchi Strada Farini Parma"><img src="img/culatello.jpg" alt=""><span class="tag walk">walk-in</span>City path: Sorelle Picchi culatello lunch (seatings to 13:45) → castle squeezed 13:45–14:30 or skipped → slow drive home<small>best culatello of the trip; castle becomes optional</small></div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening</h3>
+    <div class="prop" data-m="Cavazzone|Agricola Cavazzone Viano">Cavazzone dinner (+ acetaia if the email moved it to today)</div>
+    <div class="alts">
+      <div class="alt" data-m="Teatro Valli|Teatro Valli Reggio Emilia"><img src="img/teatroregio.jpg" alt=""><span class="tag book">book</span>Festival Aperto, Reggio (30 min) <span class="dl">programme TBC Sept</span><small>only fits if dinner moves early — realistically a stretch</small></div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d22">
+  <div class="base b-liv">→ Villa Liverzano, Brisighella</div>
+  <h2>Thu 22 <small>crossing to Romagna — weather decides the road</small></h2>
+  <div class="slot"><h3>Morning — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Cavazzone|Agricola Cavazzone Viano"><img src="img/vineyard.jpg" alt=""><span class="tag chill">chill</span>Slow Cavazzone morning: vineyard-gully loop from the house<small>ask for the trail map at breakfast</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Canossa|Castello di Canossa"><img src="img/canossa.jpg" alt=""><span class="tag walk">walk-in</span>Canossa ruins on the way out + erbazzone from a Reggio-side bakery</div>
+    </div>
+  </div>
+  <div class="slot"><h3>The drive — <em>your standing weather call</em></h3>
+    <div class="alts">
+      <div class="alt"><img src="img/brisighella.jpg" alt=""><span class="tag chill">chill</span>Fast road ~1h45 — arrive by 15:00, more village time</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/apennines.jpg" alt=""><span class="tag chill">chill</span>Scenic Apennine crossing ~2h30 — the drive IS the afternoon</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Afternoon + evening</h3>
+    <div class="prop" data-m="Via degli Asini|Via degli Asini Brisighella;CAB oil co-op|Terra di Brisighella Via Strada Brisighella">Brisighella on foot: Via degli Asini, lanes, clock-tower paths <small>Rocca itself closed till Saturday; CAB oil co-op open to 18:30 or save for Sat</small></div>
+    <div class="prop" data-m="Villa Liverzano|Villa Liverzano Brisighella">Villa Liverzano tasting + dinner <small>would be arranged with the hosts; nightcap walk to the illuminated clock tower — 15 min</small></div>
+  </div>
+</section>
+
+<section class="day" id="d23">
+  <div class="base b-liv">Villa Liverzano · the Ravenna day</div>
+  <h2>Fri 23 <small>mosaics in the morning, a genuinely open rest</small></h2>
+  <div class="slot"><h3>Thursday night ritual</h3>
+    <div class="prop">Buy the €15 mosaics combo online from the sofa — names the Galla Placidia slot<small>only needed if Ravenna wins the day; it’s the one thing that can’t be walk-in — ravennamosaici.it</small></div>
+  </div>
+  <div class="slot"><h3>Morning + midday</h3>
+    <div class="prop" data-m="San Vitale|Basilica di San Vitale Ravenna;Galla Placidia|Mausoleo di Galla Placidia Ravenna;Dante’s tomb|Tomba di Dante Ravenna">Ravenna ~40 min: San Vitale + Galla Placidia first, then the rest; Dante’s tomb free</div>
+    <div class="alts">
+      <div class="alt" data-m="Profumo di Piadina|Profumo di Piadina Via Cairoli Ravenna;Melarancio|La Piadina del Melarancio Ravenna"><img src="img/piadina.jpg" alt=""><span class="tag walk">walk-in</span>Piadina counters: Profumo di Piadina or Melarancio — the intended lunch</div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Ca’ de Vèn|Ca de Ven Via Corrado Ricci Ravenna"><img src="img/dante.jpg" alt=""><span class="tag walk">walk-in</span>Ca’ de Vèn if cold or ceremonial — day-before booking enough</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Afternoon — <em>one of, or none</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Comacchio|Comacchio"><img src="img/comacchio.jpg" alt=""><span class="tag chill">chill</span>Comacchio + flamingo lagoon (~45 min further) — clear-sky option</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/sangiovese.jpg" alt=""><span class="tag walk">walk-in</span>GiovinBacco Sangiovese festival<small>⚠ Ravenna or Forlimpopoli — I confirm in Sept; could claim evening too</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Terme di Riolo|Terme di Riolo Riolo Terme"><img src="img/rioloterme.jpg" alt=""><span class="tag chill">chill</span>Terme di Riolo 15:00–18:00, 10 min from home — walk-in wind-down</div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Villa Liverzano|Villa Liverzano Brisighella"><img src="img/v_liverzano.jpg" alt=""><span class="tag chill">chill</span>Back early: Liverzano grounds, book, wine, nothing</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Evening — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="La Grotta|Ristorante La Grotta Via Metelli Brisighella"><img src="img/erbazzone.jpg" alt=""><span class="tag book">book</span>La Grotta — the cave dining room, open only YOUR Friday<small>book a few days out, from Italy</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Auditorium Manzoni|Auditorium Manzoni Bologna"><img src="img/handel.jpg" alt=""><span class="tag book">book</span>Semele at Auditorium Manzoni, Bologna <span class="dl">tickets late Sept</span><small>1h10 each way night drive</small></div>
+      <div class="or">or</div>
+      <div class="alt" data-m="Bonsignore|Cantina del Bonsignore Brisighella"><img src="img/wine_bar.jpg" alt=""><span class="tag walk">walk-in</span>Cantina del Bonsignore (candle-lit cellar) <small>⚠ hours need my phone check</small></div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/sangiovese.jpg" alt=""><span class="tag chill">chill</span>GiovinBacco food stands as dinner, if the festival won the afternoon</div>
+    </div>
+  </div>
+</section>
+
+<section class="day" id="d24">
+  <div class="base b-liv">Departure · flight BLQ 16:45</div>
+  <h2>Sat 24 <small>the calm exit — timed backwards from the flight</small></h2>
+  <div class="slot"><h3>Morning — <em>one of</em></h3>
+    <div class="alts">
+      <div class="alt" data-m="Rocca|Rocca Manfrediana Brisighella;CAB oil co-op|Terra di Brisighella Via Strada Brisighella"><img src="img/brisighella.jpg" alt=""><span class="tag walk">walk-in</span>Rocca + clock tower 10:00–12:30 (their ONLY open window) + CAB oil co-op for the gift bag</div>
+      <div class="or">or</div>
+      <div class="alt"><img src="img/oliveoil.jpg" alt=""><span class="tag chill">chill</span>Nothing. Long breakfast, one last village loop, leave unhurried</div>
+    </div>
+  </div>
+  <div class="slot"><h3>Midday</h3>
+    <div class="alts">
+      <div class="alt" data-m="Faenza|Faenza centro"><img src="img/faenza.jpg" alt=""><span class="tag walk">walk-in</span>Faenza ceramics stop (10 min off-route) — only if the morning ran brisk</div>
+    </div>
+    <div class="fixrow" data-m="BLQ airport|Bologna Guglielmo Marconi Airport">Leave Brisighella ~13:15 → airport 1h10 + car return → flight 16:45</div>
+  </div>
+</section>
+
+<p class="foot">Photos: Wikipedia/Wikimedia Commons thumbnails (plus venue sites). ⚠ items get phone-verified 1–2 weeks before the trip.</p>
+</body>
+</html>
